@@ -55,7 +55,7 @@ export default function AttendeeDetails(props) {
               <input
                 type="file"
                 id="avatar"
-                className="hide"
+                style={{ display: 'none' }}
                 onChange={handleFileChange}
               />
               <div
