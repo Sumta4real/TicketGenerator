@@ -113,6 +113,10 @@ export default function AttendeeDetails(props) {
               className="segment input"
               {...props.register("fullName", {
                 required: "Please fill in your name",
+                minLength:{
+                  value:2,
+                  message: "Please type your first and last name"
+                })
               })}
               aria-describedby="nameError"
             />
