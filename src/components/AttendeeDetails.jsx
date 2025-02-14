@@ -6,6 +6,10 @@ export default function AttendeeDetails(props) {
   const [avatarUrl, setAvatarUrl] = useState(null);
   const [loading, setLoading] = useState(false);
 
+  const handleImageSelection = () => {
+  document.getElementById('avatar').click();
+};
+  
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     handleFileUpload(file);
@@ -61,6 +65,7 @@ export default function AttendeeDetails(props) {
               <div
                 className="imgUploader"
                 style={{ padding: avatarUrl ? "0" : "24px" }}
+                onClick = {handleImageSelection}
               >
                 {avatarUrl ? (
                   <img
