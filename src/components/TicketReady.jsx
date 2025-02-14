@@ -72,9 +72,9 @@ export default function TicketReady(props){
                     {showAlert && 
                         <p className="alert"> Your ticket is downloading </p>
                      } 
-                    <div className="buttons">
+                    <div className="buttons"> 
+                      <button className="button buttonReady" disabled={!props.isValid} onClick={downloadTicket} > Download ticket </button>
                     <button className="button" disabled={!props.isValid} onClick={props.newTicket} > Book another ticket </button>
-                    <button className="button buttonReady" disabled={!props.isValid} onClick={downloadTicket} > Download ticket </button>
                 </div>
             </div>
     )
