@@ -171,6 +171,10 @@ h1, p{
   font-style: normal;
 }
 
+.hide{
+  display:none;
+}
+
 .eventdescription{
   font-size: 14px;
 }
