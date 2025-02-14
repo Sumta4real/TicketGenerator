@@ -167,7 +167,7 @@ export default function AttendeeDetails(props) {
 
             <div className="buttons">
                     <button className="button buttonReady" type="submit" disabled={!props.isValid || props.isValid} onClick={props.next}> Get My Free Ticket </button>
-                    <button className="button" onClick={props.cancel}>Back</button>
+                    <button className="button" onClick={props.back}>Back</button>
                 </div>
             
 </div>
