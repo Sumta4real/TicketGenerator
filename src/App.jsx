@@ -7,68 +7,66 @@ import TicketReady from './components/TicketReady'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
-function App(){
-
+export default function App(){
   const [formStep, setFormStep] = useState(0);
-  const { watch, register, formState:{errors,isValid}} = useForm({mode:'all'})
-  const[image, setImage] = useState(null)
+  const { watch, register, setValue, formState: { errors, isValid }, handleSubmit } = useForm({ mode: 'all' });
+  const [image, setImage] = useState(null);
 
-  function nextStep(){
+  function nextStep() {
     if (formStep >= 0) { 
-    setFormStep(step => step + 1)
+      setFormStep(step => step + 1);
     }
   }
 
-  function prevStep(){
-    if (formStep <= 2){ 
-    setFormStep(step => step - 1)
+  function prevStep() {
+    if (formStep <= 2) { 
+      setFormStep(step => step - 1);
     }
   }
 
-  function newTicket(){
-    setFormStep(0)
+  function newTicket() {
+    setFormStep(0);
   }
 
-  function getTicket(){
-
-  }
-
-
+  const generateTicket = (data) => {
+    localStorage.setItem("ticketData", JSON.stringify(data));
+    nextStep();
+  };
 
   return (
     <main className="ticketContainer">
-      { formStep === 0 && 
+      <Header/>
+      {formStep === 0 && 
         <TicketSelection 
           next={() => nextStep()}  
           cancel={() => newTicket()}
-          register = {register}
-          errors = {errors}
-          isValid = {isValid}
+          register={register}
+          errors={errors}
+          isValid={isValid}
+          setValue={setValue}
         /> 
       } 
-      { formStep === 1 && 
+      {formStep === 1 && 
         <AttendeeDetails 
-          next={() => nextStep()} 
+          handleSubmit={handleSubmit(generateTicket)} 
           back={() => prevStep()}
-          register = {register}
-          errors = {errors}
-          isValid = {isValid}
-          image = {image}
-          setImagec={() => setImage}
+          register={register}
+          errors={errors}
+          isValid={isValid}
+          image={image}
+          setImage={setImage}
+          setValue={setValue}
         /> 
       } 
-      { formStep === 2 && 
+      {formStep === 2 && 
         <TicketReady  
-        newTicket={() => newTicket()} 
-        completed={() => getTicket()}
-        register = {register}
-        errors = {errors}
-        isValid = {isValid}
+          newTicket={() => newTicket()} 
+          register={register}
+          errors={errors}
+          isValid={isValid}
         /> 
       } 
       <pre> {JSON.stringify(watch(), null, 2)} </pre>
     </main>
-    
-  )
+  );
 }
-export default App

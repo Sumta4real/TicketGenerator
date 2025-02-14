@@ -4,14 +4,17 @@ export default function Header(){
     return(
         <div className="header">
             <img 
-            src="./ticket-icon.png" 
+            src="/logo.png" 
             alt="Event Icon" 
             />
-            <ul className="hidden">
-                <Link> </Link>
-
+            <div className="tabs">
+                <ul className="hidden">
+                <li> Event </li>
+                <li> My Tickets </li>
+                <li> About Project  </li>
             </ul>
-            <Link to="/selectTicket" className='ticket-btn'> MY TICKETS ⟶ </Link>
+            </div>
+            <Link to="/" className='ticket-btn'> MY TICKETS ⟶ </Link>
         </div>
     )
 }

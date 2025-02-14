@@ -1,17 +1,17 @@
 export default [
 
     {
-        ticketType :'REGULAR ACCESS',
+        ticketType :'REGULAR',
         numberLeft  : '20 left!',
         amount :'Free'
     },
     {
-        ticketType : 'VIP ACCESS',
+        ticketType : 'VIP',
         numberLeft  : '20 left!',
         amount : '$50'
     },
     {
-        ticketType : 'VVIP ACCESS',
+        ticketType : 'VVIP',
         numberLeft  : '20 left!',
         amount :'$150'
     }
