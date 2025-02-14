@@ -1,21 +1,16 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCloudDownloadAlt } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-import { useRef } from 'react';
 
 export default function AttendeeDetails(props) {
-  const [avatarUrl, setAvatarUrl] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [avatarUrl, setAvatarUrl] = useState(null)
+  const [loading, setLoading] = useState(false)
 
-  const avatarInputRef => useRef()
-
-  const handleImageSelection = () => {
-  avatarInputRef.current.click();
-}
   
   const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    handleFileUpload(file);
+    event.preventDefault
+    const file = event.target.files[0]
+    handleFileUpload(file)
   };
 
   const handleFileUpload = (file) => {
@@ -68,7 +63,7 @@ export default function AttendeeDetails(props) {
               <div
                 className="imgUploader"
                 style={{ padding: avatarUrl ? "0" : "24px" }}
-                onClick = {handleImageSelection}
+                onClick={() => document.getElementById('avatar').click()}
               >
                 {avatarUrl ? (
                   <img
@@ -116,7 +111,7 @@ export default function AttendeeDetails(props) {
                 minLength:{
                   value:2,
                   message: "Please type your first and last name"
-                })
+                },
               })}
               aria-describedby="nameError"
             />
@@ -176,13 +171,13 @@ export default function AttendeeDetails(props) {
             {props.errors.specialRequest && (
               <p className="error" role="alert">
                 {props.errors.specialRequest.message}</p>)}
-
+                </div>
             <div className="buttons">
                     <button className="button buttonReady" type="submit" disabled={!props.isValid || !avatarUrl} onClick={props.next}> Get My Free Ticket </button>
                     <button className="button" onClick={props.back}>Back</button>
                 </div>
             
-</div>
+
 </div>
 </form>
 </div> )}
