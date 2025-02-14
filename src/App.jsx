@@ -66,7 +66,6 @@ export default function App(){
           isValid={isValid}
         /> 
       } 
-      <pre> {JSON.stringify(watch(), null, 2)} </pre>
     </main>
   );
 }

@@ -93,7 +93,6 @@ body{
   flex-direction: column;
   gap: 2rem;
   margin-top: 1.5rem;
-  width: 100%;
 }
 
 .pageTitle, .eventdateLocation{
@@ -527,13 +526,13 @@ input:focus,
 button:focus,
 div[tabindex='0']:focus{
   outline: 3px solid #133D44;
-  box-shadow: 0 0 5px lightblue;
+  box-shatttdow: 0 0 5px lightblue;
 }
 
 
 
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .tickets{
     display: grid;
     grid-template-columns: repeat(3,1fr);
