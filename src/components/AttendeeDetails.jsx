@@ -1,14 +1,17 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCloudDownloadAlt } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import { useRef } from 'react';
 
 export default function AttendeeDetails(props) {
   const [avatarUrl, setAvatarUrl] = useState(null);
   const [loading, setLoading] = useState(false);
 
+  const avatarInputRef => useRef()
+
   const handleImageSelection = () => {
-  document.getElementById('avatar').click();
-};
+  avatarInputRef.current.click();
+}
   
   const handleFileChange = (event) => {
     const file = event.target.files[0];
