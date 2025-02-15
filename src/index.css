@@ -36,6 +36,7 @@ body{
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  
 }
 
 .header{
@@ -285,6 +286,7 @@ p.TicketAmount{
   font-weight: 600;
   font-style: normal;
   line-height: 110%;
+  text-align: left;
 }
 
 .input{
@@ -548,6 +550,8 @@ div[tabindex='0']:focus{
   .ticketFrame{
     gap: 1rem;
   }
+
+
   .pageBody{
     width: 100%;
   }
@@ -569,6 +573,7 @@ div[tabindex='0']:focus{
     justify-content: center;
     gap: 1rem;
   }
+  
   .buttons{
     flex-direction: row-reverse;
   }

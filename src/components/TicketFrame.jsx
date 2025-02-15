@@ -1,6 +1,6 @@
 export default function TicketFrame(props){
 
-        const ticketClass = props.isSelected ? 'ticketFrame ticketSelected' : 'ticketFrame '; 
+        const ticketClass = props.isSelected ? 'ticketFrame ticketSelected' : 'ticketFrame'; 
     
         return (
             <button

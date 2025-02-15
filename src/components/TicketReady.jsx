@@ -1,14 +1,29 @@
-import { useState } from "react";
-import { set } from "react-hook-form";
-import { data } from "react-router-dom"
+import { useRef, useState } from "react"
+import html2canvas from 'html2canvas'
+import jsPDF from 'jspdf'
 
 export default function TicketReady(props){
-    const [showAlert, setShowAlert] = useState(false)
+    //const [showAlert, setShowAlert] = useState(false)
+    const showAlert = useRef(false)
     const formData = JSON.parse(localStorage.getItem("ticketData"));
-    
+    const ticketPdfRef = useRef()
 
-    function downloadTicket() { 
-        setShowAlert(true)
+
+    const downloadTicket = () => {
+        showAlert.current = true
+        const ticket = ticketPdfRef.current
+        html2canvas((ticket),{
+            useCORS: true,
+            scale: 2, 
+        } )
+            .then( (canvas) =>{
+                const ticketImage = canvas.toDataURL('image/png')
+                const pdf =  jsPDF('p','mm','a4',true)
+                pdf.addImage(ticketImage,'JPEG', 20, 10, 100, 0)
+                pdf.save('ConferenceTicket.pdf')
+            }
+        )
+
     }
     
     return(
@@ -23,7 +38,7 @@ export default function TicketReady(props){
                     <h1 className="ticketReadytext"> Your Ticket is Booked </h1>
                     <p className="smallText"> Check your email for a copy or you can <span className="bold">download</span> </p>     
                     </div>                   
-                    <div className="actualTicket segment">
+                    <div className="actualTicket segment" ref={ticketPdfRef}>
                         <img src="/TicketBackground.png" alt="TicketBackground" className="backgroundImage"/>
                         <div className="ticketContent segment">
                         <div className="ticketHeader">
